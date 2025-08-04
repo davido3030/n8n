@@ -5,22 +5,21 @@
   "main": "index.js",
   "scripts": {
     "start": "n8n start",
-    "build": "echo 'Using Docker for build'",
-    "docker:build": "docker build -t n8n-custom .",
-    "docker:run": "docker-compose up -d"
+    "build": "npm install",
+    "dev": "n8n start"
   },
   "engines": {
-    "node": ">=18.0.0"
+    "node": ">=18.0.0",
+    "npm": ">=8.0.0"
   },
   "dependencies": {
-    "n8n": "latest"
+    "n8n": "^1.0.0"
   },
   "keywords": [
     "n8n",
     "automation",
     "workflow",
-    "railway",
-    "docker"
+    "railway"
   ],
   "author": "David Rabinovitch",
   "license": "MIT",
