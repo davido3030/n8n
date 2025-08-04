@@ -14,7 +14,7 @@
 - Location: `/Users/davidrabinovitch/n8n-workflow-builder/`
 
 ### 3. API Configuration
-- Your n8n API Key: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMTM2Y2IwOC1jZTg1LTQxNDgtOTdiMS1mMzQzMjgwYjQ0ZWEiLCJpc3MiOiJuOG4iLCJhdWQiOiJwdWJsaWMtYXBpIiwiaWF0IjoxNzU0Mjc4MjUwLCJleHAiOjE3NTY3ODU2MDB9.l_QHkCSbPSwMwNjTdP_XdK5_UWdh0X0_ZgF04I5K67o`
+- Your n8n API Key: `YOUR_N8N_API_KEY`
 - API endpoint: `http://localhost:5678/api/v1`
 
 ### 4. Claude Desktop Integration

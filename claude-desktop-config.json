@@ -5,7 +5,7 @@
       "args": ["@makafeli/n8n-workflow-builder"],
       "env": {
         "N8N_HOST": "http://localhost:5678/api/v1",
-        "N8N_API_KEY": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMTM2Y2IwOC1jZTg1LTQxNDgtOTdiMS1mMzQzMjgwYjQ0ZWEiLCJpc3MiOiJuOG4iLCJhdWQiOiJwdWJsaWMtYXBpIiwiaWF0IjoxNzU0Mjc4MjUwLCJleHAiOjE3NTY3ODU2MDB9.l_QHkCSbPSwMwNjTdP_XdK5_UWdh0X0_ZgF04I5K67o"
+        "N8N_API_KEY": "YOUR_N8N_API_KEY"
       }
     }
   }
