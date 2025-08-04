@@ -1,0 +1,67 @@
+{
+  "$schema": "https://railway.app/railway.schema.json",
+  "version": "3",
+  "services": {
+    "n8n": {
+      "source": {
+        "type": "image",
+        "image": "n8nio/n8n:latest"
+      },
+      "variables": {
+        "N8N_HOST": "0.0.0.0",
+        "N8N_PORT": "${{ RAILWAY_PUBLIC_DOMAIN ? '443' : '5678' }}",
+        "N8N_PROTOCOL": "${{ RAILWAY_PUBLIC_DOMAIN ? 'https' : 'http' }}",
+        "WEBHOOK_URL": "${{ RAILWAY_PUBLIC_DOMAIN ? 'https://' + RAILWAY_PUBLIC_DOMAIN : 'http://localhost:5678' }}",
+        "GENERIC_TIMEZONE": "America/New_York",
+        "N8N_METRICS": "true",
+        "DB_TYPE": "postgresdb",
+        "DB_POSTGRESDB_HOST": "${{ Postgres.PGHOST }}",
+        "DB_POSTGRESDB_PORT": "${{ Postgres.PGPORT }}",
+        "DB_POSTGRESDB_DATABASE": "${{ Postgres.PGDATABASE }}",
+        "DB_POSTGRESDB_USER": "${{ Postgres.PGUSER }}",
+        "DB_POSTGRESDB_PASSWORD": "${{ Postgres.PGPASSWORD }}",
+        "N8N_ENCRYPTION_KEY": "${{ shared.N8N_ENCRYPTION_KEY }}"
+      },
+      "healthcheck": {
+        "command": ["CMD-SHELL", "wget --no-verbose --tries=1 --spider http://localhost:5678/healthz || exit 1"],
+        "interval": 30,
+        "timeout": 10,
+        "retries": 5,
+        "start_period": 30
+      }
+    },
+    "postgres": {
+      "source": {
+        "type": "image", 
+        "image": "postgres:15"
+      },
+      "variables": {
+        "PGUSER": "n8n",
+        "POSTGRES_USER": "n8n",
+        "POSTGRES_PASSWORD": "${{ shared.POSTGRES_PASSWORD }}",
+        "POSTGRES_DB": "n8n",
+        "PGDATA": "/var/lib/postgresql/data/pgdata"
+      },
+      "volumes": [
+        {
+          "name": "postgres_data",
+          "mountPath": "/var/lib/postgresql/data"
+        }
+      ]
+    }
+  },
+  "shared": {
+    "N8N_ENCRYPTION_KEY": {
+      "generator": {
+        "type": "hex",
+        "byteLength": 32
+      }
+    },
+    "POSTGRES_PASSWORD": {
+      "generator": {
+        "type": "hex", 
+        "byteLength": 16
+      }
+    }
+  }
+}

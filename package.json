@@ -1,0 +1,31 @@
+{
+  "name": "n8n-railway-deployment",
+  "version": "1.0.0",
+  "description": "n8n automation platform deployment for Railway",
+  "main": "index.js",
+  "scripts": {
+    "start": "n8n start",
+    "build": "echo 'Using Docker for build'",
+    "docker:build": "docker build -t n8n-custom .",
+    "docker:run": "docker-compose up -d"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "n8n": "latest"
+  },
+  "keywords": [
+    "n8n",
+    "automation",
+    "workflow",
+    "railway",
+    "docker"
+  ],
+  "author": "David Rabinovitch",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/davido3030/n8n.git"
+  }
+}
